@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gayun's Portfolio</title>
+  <link rel="stylesheet" href="work.css" />
+</head>
+<script>
+  // 스크롤 진입 시 한 번만 나타나는 리빌 애니메이션
+  window.addEventListener('DOMContentLoaded', () => {
+    const targets = document.querySelectorAll(
+      '.projects-grid .project.reveal-up, .sub-grid .sub-card.reveal-up'
+    );
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -10% 0px'
+    });
+    targets.forEach(el => io.observe(el));
+  });
+</script>
+
+<body>
+  <div class="container">
+    <nav class="gnb">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="article.html">Article</a>
+      <a href="resume.html">Resume</a>
+    </nav>
+
+    <!-- 칩 네비게이션 -->
+<div class="chips">
+  <a href="#main" class="chip is-active">Main Project</a>
+  <a href="#sub"  class="chip chip--outline">Sub Project</a>
+</div>
+
+<!-- 메인 프로젝트 섹션 -->
+<section id="main" class="projects">
+
+   <!-- Main Project -->
+<div class="projects-grid">
+  <a href="https://nimble-tumble-95f.notion.site/28-8-25ed2ae3bfdc8029903bf2fa0492fcb4?source=copy_link" target="_blank" class="project reveal-up">
+    <img src="public/src/assets/image/mainproject1.png" alt="Goodduck Redesign" class="project-card" />
+    <div class="overlay">
+      <span class="view-more" role="button" aria-label="View More">View More</span>
+    </div>
+  </a>
+  <a href="https://nimble-tumble-95f.notion.site/Usability-Test-UX-25ed2ae3bfdc809882bbc71f5646d3ae?source=copy_link" target="_blank" class="project reveal-up">
+    <img src="public/src/assets/image/mainproject2.png" alt="Usability Test" class="project-card" />
+    <div class="overlay">
+      <span class="view-more" role="button" aria-label="View More">View More</span>
+    </div>
+  </a>
+  <a href="https://nimble-tumble-95f.notion.site/25ed2ae3bfdc801d89e5e25a0cb9610a?source=copy_link" target="_blank" class="project reveal-up">
+    <img src="public/src/assets/image/mainproject3.png" alt="Usability Test" class="project-card" />
+    <div class="overlay">
+      <span class="view-more" role="button" aria-label="View More">View More</span>
+    </div>
+  </a>
+  <a href="https://nimble-tumble-95f.notion.site/25fd2ae3bfdc804ab054ec214d5aced4?source=copy_link" target="_blank" class="project reveal-up">
+    <img src="public/src/assets/image/mainproject4.png" alt="Usability Test" class="project-card" />
+    <div class="overlay">
+      <span class="view-more" role="button" aria-label="View More">View More</span>
+    </div>
+  </a>
+</div>
+
+</section>
+
+<!-- 서브 프로젝트 섹션 -->
+<section id="sub" class="sub-projects">
+  <h2 class="sub-title">Sub Project</h2>
+
+  <div class="sub-grid">
+
+    <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject1.png" alt="휴리스틱 평가" class="sub-thumb" />
+      <p class="sub-desc">휴리스틱 평가</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/25fd2ae3bfdc8077a75efb804f880fb6?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div>
+
+    <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject5.png" alt="무인양품 UX분석 및 개선" class="sub-thumb" />
+      <p class="sub-desc">무인양품 UX분석 및 개선</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/UX-e2d46b3e91ad40a29cac8f8134366bbb?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div>
+
+    <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject6.png" alt="무인양품 리브랜딩" class="sub-thumb" />
+      <p class="sub-desc">무인양품 리브랜딩</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/f1b9c608727149929763ec993d04e1cf?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div>
+
+
+    <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject2.png" alt="데이터 센터 화면 디자인" class="sub-thumb" />
+      <p class="sub-desc">데이터 센터 화면 디자인</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/c8d47c0dcf92447e835708d59095622e?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div>
+
+    <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject3.png" alt="무지개 편지 사이드 프로젝트" class="sub-thumb" />
+      <p class="sub-desc">무지개 편지 사이드 프로젝트</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/84973d679456427eba85a6ef9395957d?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div>
+
+    <!-- <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject4.png" alt="포텐데이 사이드 프로젝트" class="sub-thumb" />
+      <p class="sub-desc">포텐데이 사이드 프로젝트</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/b882f660c352460f957c5c76f95b4b6a?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div> -->
+
+    <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject7.png" alt="호텔스 닷컴 UX 분석 및 개선" class="sub-thumb" />
+      <p class="sub-desc">호텔스 닷컴 UX 분석 및 개선</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/UX-588c8cd8616f4902bcfb5b3bc9cec19f?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div>
+
+    <!-- <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject8.png" alt="알라딘 UI 개선" class="sub-thumb" />
+      <p class="sub-desc">알라딘 UI 개선</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/UI-9018704ce21940008e47ded5f64c1799?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div> -->
+
+    <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject10.png" alt="프로모션 디자인" class="sub-thumb" />
+      <p class="sub-desc">프로모션 디자인</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/160d2ae3bfdc807695efc360101d5d44?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div>
+
+    <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject11.png" alt="웹사이트 디자인" class="sub-thumb" />
+      <p class="sub-desc">웹사이트 및 랜딩페이지</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/25fd2ae3bfdc809c8818e5ae96c5351c?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div>
+
+    <div class="sub-card reveal-up">
+      <img src="public/src/assets/image/subproject12.png" alt="Goodduck Logo" class="sub-thumb" />
+      <p class="sub-desc">Goodduck Logo</p>
+      <div class="overlay">
+        <a class="view-more" href="https://nimble-tumble-95f.notion.site/Goodduck-Logo-25fd2ae3bfdc80249713e4a69aa28ca0?source=copy_link" target="_blank" rel="noopener">View More</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+     <!-- Footer -->
+     <footer class="site-footer">
+      <p>© 2025 Lee Ga Yun. All rights reserved.</p>
+    </footer>
+</section>
+
+<!-- 옵션: 페이지 맨 위로 살짝 여백이 생기도록(앵커 가림 방지) -->
+<style>
+  :target { scroll-margin-top: 90px; }
+</style>
+
+ 
+  </div>
+</body>
+</html>

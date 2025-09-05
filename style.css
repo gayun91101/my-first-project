@@ -1,0 +1,483 @@
+/* 기본 리셋 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", serif;
+}
+
+/* 가운데 고정 컨테이너 */
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;       /* 한 개의 컨테이너만 사용 */
+  box-sizing: border-box;
+}
+
+/* GNB */
+.gnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  border-bottom: 1px solid #666;
+  background: #fff;
+  padding: 0 30px;  /* 좌우 여백 */
+}
+
+.gnb-left .contact,
+.gnb-right .contact {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.gnb-center {
+  display: flex;
+  gap: 0; /* 메뉴 사이 붙이기 */
+}
+
+.gnb-center a {
+  padding: 0 15px; /* 메뉴 간격 조절 */
+  font-family: "Times New Roman", serif;
+  font-size: 18px;
+  color: #000;
+  text-decoration: none;
+}
+
+.gnb-center a:hover {
+  text-decoration: underline;
+}
+
+/* 모든 GNB 링크 공통 스타일 */
+.gnb a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1;
+}
+
+/* 가운데 메뉴 전용 */
+.gnb-center a {
+  padding: 0 15px; /* 메뉴 간격 여기서만 제어 */
+}
+
+
+
+.gnb a:hover { text-decoration: underline; }
+
+/* Intro */
+.intro { text-align: left; margin: 60px auto; }
+
+.intro p {
+  font-size: 90px;
+  line-height: 1.2;
+  font-family: "Times New Roman", serif;
+  font-weight: normal;
+  margin: 0;
+  padding-left: 50px;
+  margin: 50px auto;
+}
+
+.inline-img { vertical-align: middle; height: 100px; }
+
+.profile-img {
+  height: 140px !important;
+}
+
+/* 소개 섹션 */
+.section {
+  width: 1200px;
+  margin: 50px auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+  box-sizing: border-box;
+}
+
+.section-body { padding: 40px 50px; font-family: "Pretendard", sans-serif; }
+
+.section .lead { margin: 0 0 20px; font-size: 20px; line-height: 1.8; font-weight: 700; }
+
+.section .bullets { margin: 0; padding: 0; list-style: none; }
+.section .bullets li {
+  position: relative;
+  padding-left: 1.2em;
+  margin: 8px 0;
+  font-size: 18px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+.section .bullets li::before { content: "•"; position: absolute; left: 0; top: 0; }
+
+/* Main Project */
+/* ===== Main Project: 내부 여백 균등 + 이미지 크기 고정 ===== */
+.projects .project {
+  background: #F6F6F6;
+  border-radius: 20px;
+  padding: 40px;                 /* 상하좌우 동일 여백 */
+  display: flex;                 /* 중앙 정렬 */
+  align-items: center;
+  justify-content: center;
+}
+
+/* 기존 width:100% 무력화 (둘 다 강제 적용) */
+.projects .project .project-card {
+  width: auto !important;        /* ← 100% 덮어쓰기 */
+  max-width: 90% !important;     /* 박스의 90%까지만 사용 */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+
+.projects-title {
+  font-family: "Times New Roman", serif;
+  font-weight: normal;
+  font-size: 56px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 0 32px;
+}
+
+/* ✅ 1열로 변경 & 간격 조정 */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* 한 줄에 하나씩 */
+  gap: 24px 60px;               /* 세로:16px, 가로:60px */
+  justify-content: center;
+}
+
+.project {
+  display: block;
+  background: #F6F6F6;
+  border-radius: 20px;
+  padding: 40px;   /* ← 가로/세로 동일하게 */
+  max-width: 1000px; 
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+
+/* ✅ 이미지는 박스 안을 꽉 채우되 둥글게 */
+.project-card {
+  display: block;
+  width: 80%;       /* ← 100% 대신 80% 정도로 줄이기 */
+  max-width: 800px; /* 필요하면 최대폭 제한 */
+  margin: 0 auto;   /* 가운데 정렬 */
+  height: auto;
+  border: none;
+}
+
+
+/* Read more */
+.projects .read-more{
+  display: block;          /* 줄 바꿔 단독 배치 */
+  width: max-content;      /* 콘텐츠 너비만큼만 */
+  margin: 24px auto 0;     /* 좌우 자동 → 중앙 */
+}
+
+.read-more {
+  color: #111;           /* 원하는 색상 */
+  text-decoration: none; /* 밑줄 제거 */
+}
+.read-more:visited {
+  color: #111;           /* 방문 후에도 같은 색 */
+}
+.read-more:hover {
+  text-decoration: underline; /* 필요시 hover만 밑줄 */
+}
+
+.projects .read-more {
+  display: inline-flex;        /* flex 유지 */
+  align-items: center;         /* 세로 가운데 맞춤 */
+  justify-content: center;     /* 가로 중앙 정렬 */
+  gap: 8px;
+  margin: 24px auto 0;
+  padding: 12px 0;
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  color: #111;
+  text-decoration: none;
+  width: 100%;                 /* 전체 폭 차지 */
+}
+
+.read-more-ico {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===== Project hover overlay + center button ===== */
+.project {
+  position: relative;        /* 오버레이/버튼 절대배치 기준 */
+  overflow: hidden;
+}
+
+.project .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);  /* 반투명 검은색 */
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;      /* 클릭 막지 않음 */
+}
+
+.project .view-more {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(0.96);
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+  opacity: 0;
+  transition: opacity 220ms ease, transform 220ms ease;
+  pointer-events: none;      /* 시각만, 포커스는 링크에 */
+}
+
+/* Hover/Foucus 시 노출 */
+.project:hover .overlay,
+.project:focus-visible .overlay { opacity: 1; }
+
+.project:hover .view-more,
+.project:focus-visible .view-more {
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
+}
+
+/* 키보드 포커스 테두리 (접근성) */
+.project:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 3px;
+}
+
+
+/* Article */
+.article {
+  width: 1200px;          /* ✅ 컨테이너와 동일 고정폭 */
+  margin: 0 auto;         /* ✅ 가운데 정렬 */
+  padding: 40px 50px;     /* 기존 유지 */
+  box-sizing: border-box; /* ✅ 패딩 포함하여 1200px 안에 딱 맞춤 */
+  text-align: center;
+  font-family: "Pretendard", sans-serif;
+}
+
+.article-title {
+  font-family: "Times New Roman", serif;
+  font-weight: normal;
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+.article-desc {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 40px;
+  font-family: "Times New Roman", serif;  /* 설명문 폰트 변경 */
+}
+.article-list { list-style: none; padding: 0; margin: 0 0 32px; }
+.article-list li { border-bottom: 1px solid #999; text-align: left; }
+
+.article-list li a {
+  /* 텍스트와 ↗ 사이만 간격 */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 0;
+  font-size: 18px;
+  color: #111;
+  text-decoration: none;
+}
+.article-list li a:visited { color: #111; }
+.article-list li a:hover { text-decoration: underline; }
+
+.article-more {
+  display: inline-block;
+  font-size: 14px;
+  color: #111;
+  text-decoration: none;
+   margin-bottom: 80px;
+}
+
+/* Footer: GNB와 동일 폭/정렬, 가로선 정렬 */
+.site-footer {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #666;  /* 위쪽 선 */
+  font-size: 14px;
+  color: #666;
+  width: 1200px;       /* 컨테이너랑 동일 폭 */
+  margin: 0 auto;      /* 가운데 정렬 */
+  box-sizing: border-box;
+}
+
+
+
+
+/* ===== 전역 세로선 ===== */
+html, body { height: 100%; }
+body { position: relative; }
+
+/* 왼쪽 라인 */
+body::before {
+  content:"";
+  position:fixed;
+  top:0; bottom:0;
+  left:50%;
+  transform: translateX(-600px) translateZ(0);
+  width:0;
+  border-left: 2px solid rgba(102,102,102,.55);
+  pointer-events:none;
+  z-index:9999;
+}
+/* 오른쪽 라인 */
+body::after {
+  content:"";
+  position:fixed;
+  top:0; bottom:0;
+  left:50%;
+  transform: translateX(600px) translateZ(0);
+  width:0;
+  border-left: 2px solid rgba(102,102,102,.55);
+  pointer-events:none;
+  z-index:9999;
+}
+/* ===== Intro: JS가 있으면 초기엔 약간 아래+투명 → 들어오고 → 둥실 ===== */
+html.js .intro {
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: transform, opacity;
+}
+html.js .intro.is-in {
+  opacity: 1;
+  transform: translateY(0);
+  /* ← 여기 duration을 720ms → 1500ms 정도로 늘리기 */
+  transition: transform 1500ms cubic-bezier(.22,.8,.25,1.05),
+              opacity 1500ms;
+}
+
+
+/* 둥실둥실은 컨테이너 내부 래퍼에만 적용 (자식 줄바꿈 영향 X) */
+.intro-float { will-change: transform; }
+html.js .intro.is-in .intro-float {
+  animation: intro-float 4200ms ease-in-out 900ms infinite;
+}
+
+@keyframes intro-float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* 모션 축소 선호 대응 */
+@media (prefers-reduced-motion: reduce) {
+  html.js .intro { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .intro-float { animation: none !important; }
+}
+/* 스크롤-리빌: JS 사용 시 초기값 */
+html.js .section .lead,
+html.js .section .bullets li {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+}
+
+/* 접근성: 모션 최소화 */
+@media (prefers-reduced-motion: reduce) {
+  html.js .section .lead,
+  html.js .section .bullets li {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+/* Projects: JS 있을 때 초기값 숨김 */
+html.js .projects .project {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: transform, opacity;
+}
+
+/* 모션 최소화 선호 대응 */
+@media (prefers-reduced-motion: reduce) {
+  html.js .projects .project {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+/* Projects Title: JS 있을 때 초기값 */
+html.js .projects-title {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .projects-title {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+/* ===== Language Section ===== */
+.language {
+  width: 1200px;           /* 세로 가이드와 정렬 */
+  margin: 0 auto 80px;
+  padding: 40px 50px;      /* article 섹션과 동일 여백 */
+  box-sizing: border-box;
+  font-family: "Pretendard", sans-serif;
+}
+
+.language-title {
+  font-family: "Times New Roman", serif;
+  font-weight: normal;
+  font-size: 56px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.language-list {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+.language-list li {
+  position: relative;
+  padding-left: 1.2em;
+  margin: 10px 0;
+  font-size: 18px;
+  line-height: 1.9;
+}
+.language-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Language: 한 줄 링크를 Article 리스트 스타일과 동일하게 */
+.language-exp {
+  display: inline-flex;        /* ↗ 아이콘 정렬 */
+  align-items: center;
+  gap: 6px;
+  padding: 16px 0;             /* 위아래 여백 */
+  width: 100%;                 /* 한 줄 전체 사용 */
+  font-size: 18px;             /* Article 리스트와 동일 */
+  font-weight: 400;            /* 굵기 통일 */
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1px solid #999; /* 아래 얇은 선 */
+  box-sizing: border-box;
+}
+
+.language-exp:visited { color: #111; }
+.language-exp:hover { text-decoration: underline; }
+.language-exp .arrow { font-weight: 400; }
+

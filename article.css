@@ -1,0 +1,127 @@
+/* 기본 리셋: 기본 폰트는 Pretendard */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+               Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+               "Noto Sans KR", "Malgun Gothic", sans-serif;
+}
+
+/* 가운데 고정 컨테이너 */
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ===== 전역 세로 가이드 ===== */
+html, body { height: 100%; }
+body { position: relative; }
+body::before,
+body::after {
+  content:"";
+  position:fixed; top:0; bottom:0; width:0;
+  border-left: 2px solid rgba(102,102,102,.55);
+  pointer-events:none; z-index:9999;
+}
+body::before { left:50%; transform: translateX(-600px) translateZ(0); }
+body::after  { left:50%; transform: translateX( 600px) translateZ(0); }
+
+/* ================= GNB ================= */
+.gnb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  border-bottom: 1px solid #666;
+  background: #fff;
+}
+.gnb a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  line-height: 1;
+  font-family: "Times New Roman", serif; /* GNB는 Times */
+}
+.gnb a:hover { text-decoration: underline; }
+
+/* ================ Article 헤더 ================ */
+.article-title,
+.article-desc { font-family: "Times New Roman", serif; }
+
+.article-title {
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 72px 0 18px;
+}
+
+.article-desc {
+  font-size: 16px;
+  color: #555;
+  text-align: center;      /* 가운데 정렬 */
+  max-width: 720px;        /* 길이 제한 */
+  margin: 0 auto 48px;     /* 가운데 배치 */
+}
+
+/* ================ 섹션 타이틀 ================ */
+.section-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 auto 12px;
+  max-width: 900px;        /* 내용 폭과 동일하게 */
+}
+
+/* ================ 리스트 ================ */
+/* 리스트 전체 폭을 컨테이너보다 좁게 → 선이 살짝 짧고 가운데 정렬 */
+.article-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 36px;     /* 가운데 정렬 */
+  max-width: 900px;        /* 선 길이 조절 포인트 */
+}
+.article-list li {
+  border-bottom: 1px solid #999;
+  text-align: left;
+}
+.article-list li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 0;
+  font-size: 18px;
+  color: #111;
+  text-decoration: none;
+  font-family: inherit;    /* Pretendard */
+}
+.article-list li a:visited { color: #111; }
+.article-list li a:hover { text-decoration: underline; }
+
+/* 반응형(선 길이 단계적으로 줄이기 원하면 사용) */
+@media (max-width: 1280px) {
+  .container { width: 100%; padding: 0 32px; }
+  body::before { transform: translateX(-50vw); }
+  body::after  { transform: translateX( 50vw); }
+}
+@media (max-width: 768px) {
+  .article-title { font-size: 36px; }
+  .article-list, .section-title { max-width: 100%; }
+}
+
+.site-footer {
+  text-align: center;
+  padding: 10px 0;              /* 푸터 내부 위/아래 공간 */
+  border-top: 1px solid #666;   /* 위쪽 선 */
+  font-size: 14px;
+  color: #666;
+  width: 1200px;                /* 컨테이너랑 동일 폭 */
+  margin: 120px auto 0;          /* 본문과의 간격 ↑ */
+  box-sizing: border-box;
+}
+

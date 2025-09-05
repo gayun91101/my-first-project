@@ -1,0 +1,375 @@
+/* 기본 리셋 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", serif;
+}
+
+/* 가운데 고정 컨테이너 */
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;       /* 한 개의 컨테이너만 사용 */
+  box-sizing: border-box;
+}
+
+/* GNB */
+.gnb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px; /* 고정 높이 */
+  border-bottom: 1px solid #666;
+  background: #fff;
+}
+
+.gnb a {
+  display: flex;
+  align-items: center;
+  height: 100%;           /* 부모 높이에 맞춤 */
+  padding: 0 30px;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1;         /* 폰트 고유 여백 최소화 */
+}
+
+
+.gnb a:hover { text-decoration: underline; }
+
+/* 왼쪽 라인 */
+body::before {
+  content:"";
+  position:fixed;
+  top:0; bottom:0;
+  left:50%;
+  transform: translateX(-600px) translateZ(0);
+  width:0;
+  border-left: 2px solid rgba(0, 0, 0, 0.55);
+  pointer-events:none;
+  z-index:9999;
+}
+/* 오른쪽 라인 */
+body::after {
+  content:"";
+  position:fixed;
+  top:0; bottom:0;
+  left:50%;
+  transform: translateX(600px) translateZ(0);
+  width:0;
+  border-left: 2px solid rgba(0, 0, 0, 0.55);
+  pointer-events:none;
+  z-index:9999;
+}
+
+/* 부드러운 스크롤 */
+html { scroll-behavior: smooth; }
+
+/* 칩 네비 */
+.chips {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0 32px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-family: "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1;
+  border: 2px solid #111;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  transition: transform .08s ease, background .2s, color .2s, border-color .2s;
+}
+.chip:hover { transform: translateY(-1px); }
+
+.chip--outline {
+  background: #fff;
+  color: #111;
+  border-color: #111;
+}
+
+.chip.is-active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+/* 섹션 사이 공간(취향에 맞게 조절) */
+.projects { margin-top: 16px; }
+.sub-projects { margin-top: 72px; }
+
+/* Main Project */
+/* ===== Main Project: 내부 여백 균등 + 이미지 크기 고정 ===== */
+.projects .project {
+  background: #F6F6F6;
+  border-radius: 20px;
+  padding: 40px;                 /* 상하좌우 동일 여백 */
+  display: flex;                 /* 중앙 정렬 */
+  align-items: center;
+  justify-content: center;
+}
+
+/* 기존 width:100% 무력화 (둘 다 강제 적용) */
+.projects .project .project-card {
+  width: auto !important;        /* ← 100% 덮어쓰기 */
+  max-width: 90% !important;     /* 박스의 90%까지만 사용 */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+
+.projects-title {
+  font-family: "Times New Roman", serif;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 0 32px;
+}
+
+/* ✅ 1열로 변경 & 간격 조정 */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* 한 줄에 하나씩 */
+  gap: 24px 60px;               /* 세로:16px, 가로:60px */
+  justify-content: center;
+}
+
+.project {
+  display: block;
+  background: #F6F6F6;
+  border-radius: 20px;
+  padding: 40px;   /* ← 가로/세로 동일하게 */
+  max-width: 1000px; 
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+
+/* ✅ 이미지는 박스 안을 꽉 채우되 둥글게 */
+.project-card {
+  display: block;
+  width: 80%;       /* ← 100% 대신 80% 정도로 줄이기 */
+  max-width: 800px; /* 필요하면 최대폭 제한 */
+  margin: 0 auto;   /* 가운데 정렬 */
+  height: auto;
+  border: none;
+}
+
+/* Sub Project 섹션 */
+.sub-projects {
+  width: 1200px;
+  margin: 80px auto;
+  padding: 0 50px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.sub-title {
+  font-family: "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 40px;
+  text-align: center; /* ✅ 가운데 정렬 */
+}
+
+/* 카드 레이아웃 */
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;   /* 이제 gap이 그대로 반영됨 */
+  justify-items: center;
+}
+
+
+.sub-card {
+  background: #f6f6f6;
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-width: 360px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* 카드 안 이미지 */
+.sub-thumb {
+  width: 100%;
+  height:280px;
+  object-fit: cover;  /* 이미지 비율 유지하면서 꽉 채움 */
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+/* 설명 */
+.sub-desc {
+  font-size: 18px;
+  font-family: "Pretendard", sans-serif;
+  margin: 0;
+}
+
+/* Footer: GNB와 동일 폭/정렬, 가로선 정렬 */
+.site-footer {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #666;  /* 위쪽 선 */
+  font-size: 14px;
+  color: #666;
+  width: 1200px;       /* 컨테이너랑 동일 폭 */
+  margin: 0 auto;      /* 가운데 정렬 */
+  box-sizing: border-box;
+}
+
+/* ===== Scroll reveal: 아래에서 위로 두둥실 ===== */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(36px);
+  filter: saturate(0.92);
+  will-change: transform, opacity;
+  transition:
+    transform .7s cubic-bezier(.22,.61,.36,1),
+    opacity .7s ease,
+    filter .7s ease;
+}
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: none;
+}
+/* 4장 카드 순차 지연(스태거) */
+.projects-grid .project.reveal-up:nth-child(1) { transition-delay: 0ms; }
+.projects-grid .project.reveal-up:nth-child(2) { transition-delay: 120ms; }
+.projects-grid .project.reveal-up:nth-child(3) { transition-delay: 240ms; }
+.projects-grid .project.reveal-up:nth-child(4) { transition-delay: 360ms; }
+
+/* ===== Hover dim + View More 버튼 ===== */
+.project {
+  position: relative;    /* overlay 기준 */
+  overflow: hidden;
+  background: #F6F6F6;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 오버레이 레이어 */
+.project .overlay {
+  position: absolute;
+  inset: 0;                       /* 박스 전체 덮기 */
+  background: rgba(0,0,0,0);      /* 초기: 투명 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: background .35s ease, opacity .35s ease;
+  border-radius: 20px;            /* 박스와 동일 라운드 */
+}
+
+/* 호버 시 박스 전체 어두워지고 버튼 표시 */
+.project:hover .overlay,
+.project:focus-within .overlay {
+  background: rgba(0,0,0,0.45);   /* 회색박스+이미지 전부 어두워짐 */
+  opacity: 1;
+}
+
+/* View More 버튼 */
+.view-more {
+  padding: 12px 20px;
+  border-radius: 9999px;
+  background: #fff;
+  color: #111;
+  font-family: "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  transform: translateY(10px);
+  opacity: 0;
+  transition: opacity .35s ease, transform .35s cubic-bezier(.22,.61,.36,1);
+}
+
+/* 호버 시 버튼 부드럽게 위로 뜸 */
+.project:hover .view-more,
+.project:focus-within .view-more {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Sub Card: Scroll reveal ===== */
+.sub-grid .sub-card.reveal-up {
+  opacity: 0;
+  transform: translateY(36px);
+  filter: saturate(0.92);
+  will-change: transform, opacity;
+  transition:
+    transform .7s cubic-bezier(.22,.61,.36,1),
+    opacity .7s ease,
+    filter .7s ease;
+}
+.sub-grid .sub-card.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: none;
+}
+
+/* ===== Sub Card: Hover dim + View More 버튼 ===== */
+.sub-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.sub-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  border-radius: 16px;
+  transition: background .35s ease, opacity .35s ease;
+}
+
+.sub-card:hover .overlay,
+.sub-card:focus-within .overlay {
+  background: rgba(0,0,0,0.45);
+  opacity: 1;
+}
+
+/* 버튼 자체가 링크(a). 카드 링크와 중첩 피하기 위해 카드 전체는 div 유지 */
+.sub-card .view-more {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  background: #fff;
+  color: #111;
+  font-family: "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  transform: translateY(10px);
+  opacity: 0;
+  transition: opacity .35s ease, transform .35s cubic-bezier(.22,.61,.36,1);
+}
+
+.sub-card:hover .view-more,
+.sub-card:focus-within .view-more {
+  opacity: 1;
+  transform: translateY(0);
+}
